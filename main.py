@@ -1,20 +1,16 @@
-#!/usr/bin/env python
 import sys
-from equipe_de_analise_financeira_ia.crew import EquipeDeAnaliseFinanceiraIaCrew
+from crew import EquipeDeAnaliseFinanceiraIa
 
-# This main file is intended to be a way for your to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+
 
 def run():
     """
     Run the crew.
     """
     inputs = {
-        'empresa': 'sample_value'
+        'empresa': 'Apple'
     }
-    EquipeDeAnaliseFinanceiraIaCrew().crew().kickoff(inputs=inputs)
+    EquipeDeAnaliseFinanceiraIa().crew().kickoff(inputs=inputs)
 
 
 def train():
@@ -22,10 +18,10 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        'empresa': 'sample_value'
+        'empresa': 'Apple'
     }
     try:
-        EquipeDeAnaliseFinanceiraIaCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        EquipeDeAnaliseFinanceiraIa().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -35,7 +31,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        EquipeDeAnaliseFinanceiraIaCrew().crew().replay(task_id=sys.argv[1])
+        EquipeDeAnaliseFinanceiraIa().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -45,10 +41,10 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        'empresa': 'sample_value'
+        'empresa': 'Applei'
     }
     try:
-        EquipeDeAnaliseFinanceiraIaCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        EquipeDeAnaliseFinanceiraIa().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
