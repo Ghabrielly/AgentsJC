@@ -1,53 +1,24 @@
 import sys
 from crew import EquipeDeAnaliseFinanceiraIa
 
-
-
 def run():
-    """
-    Run the crew.
-    """
-    inputs = {
-        'empresa': 'Apple'
-    }
+    inputs = {'empresa': 'Apple'}
     EquipeDeAnaliseFinanceiraIa().crew().kickoff(inputs=inputs)
 
-
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
-    inputs = {
-        'empresa': 'Apple'
-    }
-    try:
-        EquipeDeAnaliseFinanceiraIa().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while training the crew: {e}")
+    inputs = {'empresa': 'Apple'}
+    EquipeDeAnaliseFinanceiraIa().crew().train(
+        n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs
+    )
 
 def replay():
-    """
-    Replay the crew execution from a specific task.
-    """
-    try:
-        EquipeDeAnaliseFinanceiraIa().crew().replay(task_id=sys.argv[1])
-
-    except Exception as e:
-        raise Exception(f"An error occurred while replaying the crew: {e}")
+    EquipeDeAnaliseFinanceiraIa().crew().replay(task_id=sys.argv[1])
 
 def test():
-    """
-    Test the crew execution and returns the results.
-    """
-    inputs = {
-        'empresa': 'Applei'
-    }
-    try:
-        EquipeDeAnaliseFinanceiraIa().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
-
-    except Exception as e:
-        raise Exception(f"An error occurred while testing the crew: {e}")
+    inputs = {'empresa': 'Apple'}
+    EquipeDeAnaliseFinanceiraIa().crew().test(
+        n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs
+    )
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
